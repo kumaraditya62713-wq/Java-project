@@ -1,0 +1,54 @@
+import java.util.Scanner;
+
+class Employee {
+    private int empId;
+    private String empName;
+    private double basicSalary;
+    private double hra;
+    private double da;
+    private double grossSalary;
+
+    // Function to take employee details
+    public void getDetails() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter Employee ID : ");
+        empId = sc.nextInt();
+        sc.nextLine();
+
+        System.out.print("Enter Employee Name : ");
+        empName = sc.nextLine();
+
+        System.out.print("Enter Basic Salary : ");
+        basicSalary = sc.nextDouble();
+    }
+
+    // Function to calculate salary
+    public void calculateSalary() {
+        hra = basicSalary * 0.20;   // 20% HRA
+        da = basicSalary * 0.10;    // 10% DA
+        grossSalary = basicSalary + hra + da;
+    }
+
+    // Function to display payroll details
+    public void displayDetails() {
+        System.out.println("\n------ Employee Payroll Details ------");
+        System.out.println("Employee ID      : " + empId);
+        System.out.println("Employee Name    : " + empName);
+        System.out.println("Basic Salary     : " + basicSalary);
+        System.out.println("HRA              : " + hra);
+        System.out.println("DA               : " + da);
+        System.out.println("Gross Salary     : " + grossSalary);
+    }
+}
+
+public class PayrollManagement {
+    public static void main(String[] args) {
+
+        Employee emp = new Employee();
+
+        emp.getDetails();
+        emp.calculateSalary();
+        emp.displayDetails();
+    }
+}
